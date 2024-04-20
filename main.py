@@ -81,3 +81,31 @@ if __name__ == "__main__":
   Perhaps you'd still like to sort your dictionary.
   If that's the case, then checkout Soring a Python Dictionary: Values, Keys and More.
   """
+
+  # Accessing Dictonary Values
+
+  """
+  Of course, dictionary elements must be accessible somehow.
+  If you don't get them by index, then how do you get them?
+
+  A value is retrieved from a dictionary by specifying its corresponding key in square brackets ([]):
+  """
+
+  print(MLB_team["Minnesota"])
+  print(MLB_team["Colorado"])
+
+  """
+  If you refer to a key that is not in the dictionary. Python raises an exception:
+
+  Adding an entry to an exsting dictionary os simply a metter of assogning a new key and value:
+  """
+
+  MLB_team["Seattle"] = "Seahawks"
+  print(MLB_team)
+
+  """
+  To delete an entry, use the del statement, specifying the key to delete
+  """
+
+  del MLB_team["Seattle"]
+  print(MLB_team)
