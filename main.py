@@ -154,3 +154,60 @@ if __name__ == "__main__":
   Items added to a dictionary are added at the end.
   If items are deleted, the order of the remaining items is retained.
   """
+
+  # Building a Dictionary Incrementally
+
+  """
+  Defining a dictionary using curly braces and a list of key-value pairs, as shown above, is fine id you know all the keys and values in advance.
+  But what if you want to build a dictionary on the fly?
+
+  You can start by creating an empty dictionary, which is specified by empty curly braces.
+  Then you can add new keys and values one at a time:
+  """
+
+  person = {}
+  print(type(person))
+
+  person["fname"] = "Joe"
+  person["lname"] = "Fonebone"
+  person["age"] = 51
+  person["spouse"] = "Edna"
+  person["children"] = ["Ralph", "Betty", "Joey"]
+  person["pets"] = { "dog": "Fido", "cat": "Sox" }
+
+  print(person)
+  print(person["fname"])
+  print(person["age"])
+  print(person["children"])
+
+  """
+  Retrieving the values in the sublist or subdictionary requires an addtional index or key:
+  """
+
+  print(person["children"][-1])
+  print(person["pets"]["cat"])
+
+  """
+  This example exhibits another feature of dictionaries: the values contained in the dictionary don't need to be the same type.
+  In person, some of the values are strings, one is an integer, one is a list, and one is another dictionary.
+
+  Just as the values in a dictionary don't need to be of the same type, the keys don't either
+  """
+
+  foo = { 42: "aaa", 2.78: "bbb", True: "ccc" }
+  print(foo)
+  print(foo[42])
+  print(foo[2.78])
+  print(foo[True])
+
+  """
+  Here. one of the keys is integer, one is a flowt, and one is Boolean.
+  It's not obvious how this would be useful, but you never know.
+
+  Notice how versatile Python dictionaries are.
+  In MLB_team, the same piece of information (the baseball team name) is kept for each of several different geographical locations.
+  person, on the other hand, stores varying types of date for a single person.
+
+  You can use dictionaries for a wide range purpose because there are so few limitations on the keys and values that are allowed.
+  But there are some. Read on!
+  """
