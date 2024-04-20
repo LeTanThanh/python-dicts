@@ -109,3 +109,48 @@ if __name__ == "__main__":
 
   del MLB_team["Seattle"]
   print(MLB_team)
+
+  # Dictionary Keys vs List Indices
+
+  """
+  You may have noticed that the interpreter raise the same exception, KeyError, when a dictionary is accessed with either an undefined key or by a numeric index:
+
+  In fact, it's the same error.
+  In the latter case, [1] looks like a numerical index, but it isn't.
+
+  You will see later in this tutorial that an object of any immutable type can be used as a dictionary key.
+  Accordingly, there is no reason you can't use integers:
+  """
+
+  d = { 0: "a", 1: "b", 2: "c", 3: "d" }
+  print(d)
+  print(d[0])
+  print(d[2])
+
+  """
+  In the expression MLB_team[1], d[0] and d[2], the number in square brackets appear as though they might be indices.
+  But they have nothing to do with the order of the items in the dictionary.
+  Python is interpreting them as dictionary keys.
+  If you define this same dictionary in reverse order, you still get the same value using the same keys:
+  """
+
+  d = { 3: "d", 2: "c", 1: "b", 0: "a" }
+  print(d)
+  print(d[0])
+  print(d[2])
+
+  """
+  The syntax look similar, but you can't treat a dictionary like a list:
+  """
+
+  print(type(d))
+  # d[-1]   # KeyError
+  # d[0:2]  # TypeError
+  # d.append("e") # AttributeError
+
+  """
+  Note: Although access to items in a dictionary does not depend on order, Python does guarantee that the order of items in a dictionary is preserved.
+  When displayed, items will appear in the order they were defined, and iteration through the keys will occur in that order as well.
+  Items added to a dictionary are added at the end.
+  If items are deleted, the order of the remaining items is retained.
+  """
