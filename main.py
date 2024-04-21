@@ -211,3 +211,101 @@ if __name__ == "__main__":
   You can use dictionaries for a wide range purpose because there are so few limitations on the keys and values that are allowed.
   But there are some. Read on!
   """
+
+  # Restrictions on Dictionary Keys
+
+  """
+  Almost any type of value can be used as a dictionary key in Python.
+  You just saw this example, where integer, float, and Boolean objects are used as keys:
+  """
+
+  foo = { 42: "aaa", 2.78: "bbb", True: "ccc" }
+  print(foo)
+
+  """
+  You can even use built-in objects like types and functions
+  """
+
+  d = { int: 1, float: 2, bool: 3 }
+  print(d)
+  print(d[float])
+
+  d = { bin: 1, hex: 2, oct: 3 }
+  print(d)
+  print(d[oct])
+
+  """
+  However, there are a couple restrictions that dictionary key must abide by.
+
+  First, a given key can appear in a dictionary only once.
+  Duplicates keys are now allowed.
+  A dictionary maps each key to a corresponding, so it doesn't make sense to map a particular key more than once.
+
+  You saw above that when you assign a value to an already existing dictionary key, it does not add the key a second time, but replaces the existing value
+  """
+
+  MLB_team = {
+    "Colorado": "Rockies",
+    "Boston": "Red Sox",
+    "Minnesota": "Twins",
+    "Milwaukee": "Brewers",
+    "Seattle": "Mariners"
+  }
+  print(MLB_team)
+  MLB_team["Minnesota"] = "Timberwolves"
+  print(MLB_team)
+
+  """
+  Similarly, if you specify a ket a second time duting the initial creation of a dictionary, the second occurrence will override the first:
+  """
+
+  MLB_team = {
+    "Colorado": "Rockies",
+    "Boston": "Red Sox",
+    "Minnesota": "Timberwolves",
+    "Milwaukee": "Brewers",
+    "Seattle": "Mariners",
+    "Minnesota": "Twins"
+  }
+  print(MLB_team)
+
+  """
+  Secondly, a dictionary key must be a type that immutable.
+  You have already seen examples where several of the immutable types you are familiar with - integer, float, string and Boolean - have served as dictionary keys.
+
+  A tuple can also be a dictionary key, because tuples are immutable:
+  """
+
+  d = { (1, 1): "a", (1, 2): "b", (2, 1): "c", (2, 2): "d" }
+  print(d)
+  print(d[(1, 1)])
+  print(d[(2, 1)])
+
+  """
+  Recall from the discussion on tuples that one rationale for using a tuple instead of a list is that there are circumstances where an immutable type is required.
+  This is one of them.
+
+  However, neither a list nor another dictionary can serve as a dictionary key, because lists and dictionaries are mutablle
+  """
+
+  # d = { [1, 1]: "a", [1, 2]: "b", [2, 1]: "c", [2, 2]: "d" }
+  # TypeError
+
+  """
+  Technical Note: Why does the error message say "unhashable"?
+
+  Technically, it is not quite correct to say an object must be immutable to be used as a dictionary key.
+  More precisely, an object must be hashable, which means it can be passed to a hash function.
+  A hash function takes data or arbitrary size and maps it to a relatively simpler fixed-size value called a hash value (or simply hash), which is used for table lookup and comparison.
+
+  Python's built-in hash() function returns the hash value for an object which is hashable, and raise an exception for an object which isn't:
+  """
+
+  print(hash("foo"))
+
+  """
+  All of the built-in immutable types you have learned about so far are hashable, and the mutable container types (lists and dictionaries) are not.
+  So for present purposes, you can think of hashable and immutable as more oe less synonymous.
+
+  In future tutorials, you will encounter mutable objects which are also hashable.
+  """
