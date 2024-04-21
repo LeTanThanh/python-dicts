@@ -323,3 +323,44 @@ if __name__ == "__main__":
   d = { 0: "a", 1: "a", 2: "a", 3: "a" }
   print(d)
   print(d[0] == d[1] == d[2])
+
+  # Operators and Built-in Functions
+
+  """
+  You have already become familiar with many of the operators and built-in functions that can be used with strings, lists and tuples.
+  Some of these work with dictionaries as well.
+
+  For example, the in and not in operators return True or False accprding to whether the specified operand occurs as a key in the dictionary:
+  """
+
+  MLB_team = {
+    "Colorado": "Rockies",
+    "Boston": "Red Sox",
+    "Minnesota": "Twins",
+    "Milwaukee": "Brewers",
+    "Seattle": "Mariners"
+  }
+
+  print("Milwaukee" in MLB_team)
+  print("Toronto" in MLB_team)
+  print("Toronto" not in MLB_team)
+
+  """
+  You can use the in operator together with short-circuit evaluation to avoid raising an error when trying to access a key that is not in the dictionary
+  """
+
+  print("Toronto" in MLB_team and MLB_team["Toronto"])
+
+  """
+  The len() function returns the number of key-value pairs in a dictionary:
+  """
+
+  MLB_team = {
+    "Colorado": "Rockies",
+    "Boston": "Red Sox",
+    "Minnesota": "Twins",
+    "Milwaukee": "Brewers",
+    "Seattle": "Mariners"
+  }
+
+  print(len(MLB_team))
