@@ -364,3 +364,182 @@ if __name__ == "__main__":
   }
 
   print(len(MLB_team))
+
+  # Built-in Dictionary Methods
+
+  """
+  As with strings and lists, there are several built-in methods that can be invoked on dictionaries.
+  In fact, in some cases, the list and dictionary methods share the same name.
+  (In the discussion on object-oriented programming, you will see that it is perfectly acceptable for different types to have methods with the same name.)
+
+  The following is an overview of methods that apply to dictionaries:
+  """
+
+  ## d.clear()
+  """
+  Clears a dictionary.
+
+  d.clear() empties dictionary d of all key-value pairs:
+  """
+
+  d = { "a": 10, "b": 20, "c": 30 }
+  print(d)
+  d.clear()
+  print(d)
+
+  ## d.get(<key>[, <default>])
+  """
+  Returns the value for a key if it exists in the dictionary.
+
+  The Python dictionary .get() method provides a convenient way of getting the value of a key from a dictionary without checking ahead of time whether the key exists, and without raising an error.
+
+  d.get(<key>) searches dictionary d for <key> and returns the associated value if it is found.
+  If <key> is not found, it returns None:
+  """
+
+  d = { "a": 10, "b": 20, "c": 30 }
+  print(d.get("b"))
+  print(d.get("z"))
+
+  """
+  If <key> is not found and the optional <default> argument isspecified, that value is returned instead of None:
+  """
+
+  print(d.get("z", -1))
+
+  ## d.items()
+  """
+  Returns a list of key-value pairs in a dictionary.
+
+  d.items() returns a list of tuples containing the key-value in pairs in d.
+  The first item in each tuple is the key, and the second item is the key's value:
+  """
+
+  d = { "a": 10, "b": 20, "c": 30 }
+  print(d)
+  print(d.items())
+  print(list(d.items()))
+  print(list(d.items())[1][0])
+  print(list(d.items())[1][1])
+
+  ## d.keys()
+  """
+  Returns a list of keys in a dictionary.
+
+  d.keys() returns a list of all keys in d:
+  """
+
+  d = { "a": 10, "b": 20, "c": 30 }
+  print(d)
+  print(d.keys())
+  print(list(d.keys()))
+
+  ## d.values()
+  """
+  Returns a list of values in a dictionary.
+
+  d.values() returns a list of all values in d:
+  """
+
+  d = { "a": 10, "b": 20, "c": 30 }
+  print(d)
+  print(d.values())
+  print(list(d.values()))
+
+  """
+  Technical Note: The .items(), .keys() and .values() method actually return something called a view object.
+  A dictionary view object is more or less like a window on the keys and values.
+  For partical purposes, you can think of these methods as returning lists of the dictionary's keys and values.
+  """
+
+  ## d.pop(<key>[, <default>])
+  """
+  Removes a key from a dictionary, if it is present, and returns its value
+
+  If <key> is present in d, d.pop(<key>) removes <key> and returns its associated value:
+  """
+
+  d = { "a": 10, "b": 20, "c": 30 }
+  print(d)
+  print(d.pop("b"))
+  print(d)
+
+  """
+  If <key> is not in a, and the optional <default> argument is specified, then that value is returned, and no exception is raised:
+  """
+
+  d = { "a": 10, "b": 20, "c": 30 }
+  print(d)
+  print(d.pop("z", -1))
+  print(d)
+
+  ## d.popitem()
+  """
+  Removes a key-value pair from a dictionary
+
+  d.popitem() removes the last key-value pair added from d and returns it as a tuple:
+  """
+
+  d = { "a": 10, "b": 20, "c": 30 }
+  print(d)
+  d.popitem()
+  print(d)
+  d.popitem()
+  print(d)
+
+  """
+  If d is empty, d.popitem() raises a KeyError exception:
+  """
+
+  # d = {}
+  # d.popitem()
+  # KeyError
+
+  ## d.update(<obj>)
+  """
+  Merges a dictionary with another dictionary or with an iterable of key-value pairs.
+
+  If <obj> is a dictionary, d.update(<obj>) merges the entries from <obj> in to d.
+  For each key in <obj>:
+
+  - If the key is not present in d, the key-value pair from <obj> is added to d.
+  - If the key is already present in d, the corresponding value in d for that key is updated to the value from <obj>.
+
+  Here is an example showing two dictionaries merge together:
+  """
+
+  d1 = { "a": 10, "b": 20, "c": 30 }
+  d2 = { "b": 200, "d": 400 }
+  print(d1)
+  print(d2)
+  d1.update(d2)
+  print(d1)
+
+  """
+  In this example, key "b" already exist in d1, so its value is updated to 200, the value for that key from d2.
+  However, there is no key "d" in d1, so that key-value pair is added from d2.
+
+  <obj> may also be a sequence of key-value pairs, similar to when the dict() function is used to define a dictionary.
+  For example, <obj> can be specified as a list of tuples:
+  """
+
+  d1 = { "a": 10, "b": 20, "c": 30 }
+  print(d1)
+  d1.update([("b", 200), ("d", 400)])
+  print(d1)
+
+  # Conclusion
+
+  """
+  In this tutorial, you covered the basic properties of the Python dictionary and learned how to access and manipulate dictionary data.
+
+  Lists and dictionaries are two of the most frequently used Python types.
+  As you have seen, they have several similarities, but differ in how their elements are accessed.
+  Lists elements are accessed by numerical index based on order, and dictionary elements are accessed by key.
+
+  Because of this differece, lists and dictionaries tend to be appropriate for different circumstances.
+  You should now have a good feel for which, if either, would be best for a given situation.
+
+  Next you will learn about Python sets.
+  The set is another composite data type, but it is quite different from either a list or dictionary.
+  """
