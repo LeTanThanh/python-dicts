@@ -309,3 +309,17 @@ if __name__ == "__main__":
 
   In future tutorials, you will encounter mutable objects which are also hashable.
   """
+
+  # Restrictions on Dictionary Values
+
+  """
+  By contrast, there are no restrictions on dictionary values.
+  Literally none at all.
+  A dictionary value can be any type of object Python supports, including mutable types like lists and dictionaries, and user-defined objects, which you will learn about in upcoming tutorials.
+
+  There is also no restriction against a particular value appearing in a dictionary mutiple times:
+  """
+
+  d = { 0: "a", 1: "a", 2: "a", 3: "a" }
+  print(d)
+  print(d[0] == d[1] == d[2])
